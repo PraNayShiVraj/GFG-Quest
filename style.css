@@ -1,0 +1,285 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #111;
+  color: #eee;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 56px; 
+}
+
+h3 {
+  color: rgba(255, 255, 255, 0.1); 
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  border-bottom: 2px solid #1db955;
+  z-index: 200;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1db955;
+  cursor: default;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #eee;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  color: #3be375;
+  outline: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  z-index: 210;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: #1db955;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 200px;
+    height: calc(100vh - 56px);
+    background: #222;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    align-items: start;
+    gap: 1.5rem;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.7);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+.hero-section {
+  background: #222;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.hero-content h1 {
+  color: #1db955;
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  margin: 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  border: 2px solid transparent;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #1db955;
+  color: #111;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #3be375;
+  outline: none;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #1db955;
+  color: #1db955;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #1db955;
+  color: #111;
+  outline: none;
+}
+
+
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  color: #1db955;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+
+.featured-works {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 600px) {
+  .featured-works {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: #222;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1db955;
+  font-size: 1.2rem;
+}
+
+.card p {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.card .year {
+  font-weight: 700;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+
+.about-section {
+  margin-bottom: 3rem;
+}
+
+.about-text {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #ddd;
+  text-align: center;
+}
+
+
+.contact-section {
+  margin-bottom: 3rem;
+}
+
+.contact-text {
+  text-align: center;
+  color: #ddd;
+}
+
+.contact-text a {
+  color: #1db955;
+  text-decoration: none;
+}
+
+.contact-text a:hover,
+.contact-text a:focus {
+  color: #3be375;
+  outline: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: #666;
+  border-top: 1px solid #333;
+  margin-top: auto;
+}
